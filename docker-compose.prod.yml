@@ -1,6 +1,6 @@
 version: "3"
 services:
-  web:
+  app:
     restart: always
     environment:
       VIRTUAL_HOST: ${HOST_NAME}
