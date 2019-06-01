@@ -7,30 +7,30 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install dependencies
-        command: |
-          pip install --upgrade pip
-          pip install --upgrade docker docker-compose
+          name: Install dependencies
+          command: |
+            pip install --upgrade pip
+            pip install --upgrade docker docker-compose
       - run:
-        name: docker-compose run
-        command: make up
+          name: docker-compose run
+          command: make up
 
   deploy:
     machine:
       image: circleci/classic:edge
     steps:
       - run:
-        name: service deploy
-        command: ssh ${HOST} make -C src/github.com/IkezoeMakoto/word-quiz deploy/prod
+          name: service deploy
+          command: ssh ${HOST} make -C src/github.com/IkezoeMakoto/word-quiz deploy/prod
 
 workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - test:
+      - test
       - deploy:
-        requires:
-          - test
-        filters:
-          branches:
-            only: master
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
