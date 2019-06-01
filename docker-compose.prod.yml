@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web:
+    restart: always
+    environment:
+      VIRTUAL_HOST: ${HOST_NAME}
+      VIRTUAL_PORT: ${PORT}
+      LETSENCRYPT_HOST: ${HOST_NAME}
+      LETSENCRYPT_EMAIL: ${MAIL_ADDRESS}
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_NAME}
