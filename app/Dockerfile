@@ -1,24 +1,22 @@
 FROM php:7-fpm-alpine
 
-MAINTAINER "Ikezoe Makoto" <150283t@gmail.com>
-
-# 必要そうなやつ
+# common
 RUN apk update && \
-    apk add make git shadow && \
+    apk add make less vim git shadow && \
     rm -rf /var/cache/apk/*
 
-ARG USER_ID
-ARG GROUP_ID
+# timezone -> tokyo
+RUN apk update && \
+    apk add tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/*
 
-ENV APACHE_RUN_USER="developer" \
-    APACHE_RUN_GROUP="developer"
+RUN addgroup -g 2000 -S webcontentsowners
+RUN adduser -s /sbin/nologin -G webcontentsowners -D -H nginx
 
-RUN groupadd -g $GROUP_ID -o developer &&\
-    useradd -m developer -u $USER_ID -g $GROUP_ID
+COPY etc/php-fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
+COPY etc/php/php.ini /usr/local/etc/php/php.ini
 
-# php拡張
-RUN docker-php-ext-install pdo_mysql mysqli mbstring
-
-COPY ./etc /usr/local/etc
-
-WORKDIR /app
+WORKDIR /usr/share/nginx/public
+COPY src/ /usr/share/nginx/public
