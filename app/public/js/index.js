@@ -55,6 +55,9 @@ $(function() {
             if (/[\u3041-\u3096]/.test(string)) {
                 return 'あ';
             }
+            if (/[0-9]/.test(string)) {
+                return '1';
+            }
 
             return string;
         });
