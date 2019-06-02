@@ -1,8 +1,21 @@
 $(function() {
-    // クイズボタンを押したときに文字列をクイズ化する
-    $('.js-make-quiz').on('click', () => {
+    // クイズボタンを押したとき
+    $(document).on('click', '.js-make-quiz', () => {
         const origin = $('.js-origin').val();
-        $('.js-quiz').text(makeQuiz(origin))
+        if (origin.length === 0) {
+            return ;
+        }
+        // 文字列をクイズ化してセット
+        const quizText = makeQuiz(origin);
+        $('.js-quiz').text(quizText);
+
+        // ツイート時のメッセージを変更
+        const shareMessage = "文字あてクイズ作ったから解いてみてね！" + "\n" + quizText + "\n" + "#文字あてったー" + "\n" + location.href;
+        const tweetUrl = 'https://twitter.com/intent/tweet?text=';
+        $('.share_link').attr('href', tweetUrl + encodeURIComponent(shareMessage));
+
+        // クイズエリアを表示
+        $('.js-quiz-area').show();
     });
 
     // Enter押下時に判定させる
