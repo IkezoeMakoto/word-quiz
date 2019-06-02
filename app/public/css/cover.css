@@ -104,3 +104,35 @@ body {
 .mastfoot {
     color: rgba(255, 255, 255, .5);
 }
+
+/**
+ * share
+ */
+.share_twitter {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #1b95e0;
+    border-color: #1b95e0;
+    color: white;
+}
+
+.share_twitter:hover{
+    background-color: #0c7abf;
+    border-color: #0c7abf;
+}
+
+.share_twitter_o {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #F4F4F4;
+    color: #1b95e0;
+    border: #DDD 1px solid !important;
+}
+
+.share_twitter_o:hover{
+    color: #1b95e0;
+    background-color: #DDD;
+    border-color: #AAA;
+}

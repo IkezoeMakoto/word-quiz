@@ -25,8 +25,8 @@
     <title>文字あてったー</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="/css/cover.css">
@@ -56,32 +56,37 @@
     </header>
 
     <!-- Main -->
-    <main role="main" class="inner cover">
-        <h1 class="cover-heading">文字あてったー</h1>
-        <p>
-            任意の文字をみんなに当ててもらおう
-        </p>
+    <main role="main" class="inner cover align-items-center">
+        <div class="p-6">
+            <h1>文字あてったー</h1>
+            <p>任意の文字をみんなに当ててもらおう</p>
 
-        <form>
-            <div class="input-group">
-                <input name="origin" class='js-origin form-control' type='text' placeholder="もとの文字を入れてね">
-                <span class="input-group-btn">
-                    <button type="button" class='js-make-quiz btn btn-default'>クイズにする♪</button>
-                </span>
+            <form>
+                <div class="input-group">
+                    <input name="origin" class='js-origin form-control' type='text' placeholder="もとの文字を入れてね">
+                    <span class="input-group-btn">
+                        <button type="button" class='js-make-quiz btn btn-default'>クイズにする♪</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="p-6">　</div>
+        <div class="p-6">例</div>
+        <div class="p-6 js-dummy row">
+            <span class="col-md-12">大乱闘スマッシュブラザーズ → 漢漢漢アアァアァアアアーア</span>
+            <span class="col-md-12">魔法少女まどか☆マギカ → 漢漢漢漢あああ☆アアア</span>
+        </div>
+        <div class="p-6">　</div>
+        <div class="p-6 js-quiz-area row" style="display: none;">
+            <p class="lead col-md-12">▼クイズにしたよ</p>
+            <p class="js-quiz col-md-8 text-center"></p>
+            <div class="js-tweet col-md-4">
+                <div class="share_btn_block">
+                    <a class="share_link" id="share_Tweet" href="" target="_blank">
+                        <span class="share_btn share_twitter share_btn_event"><i class="fa fa-twitter"></i> ツイートする</span>
+                    </a>
+                </div>
             </div>
-        </form>
-
-        <div class="row">
-            <p></p>
-        </div>
-        <div class="row">
-            <span class="col-md-12 ">
-                <p class="lead">▼クイズにしたよ</p>
-            </span>
-        </div>
-
-        <div class="row">
-            <p class="col-md-12 js-quiz"></p>
         </div>
     </main>
 
